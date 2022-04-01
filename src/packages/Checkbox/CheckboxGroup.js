@@ -1,6 +1,8 @@
 import React from "react";
 import { isArray, isFunction } from "../../js/utils";
 import Checkbox from "./Checkbox";
+import style from "./index.module.scss";
+
 const CheckboxGroupContext = React.createContext();
 
 export default function CheckboxGroup(props) {
@@ -46,15 +48,17 @@ export default function CheckboxGroup(props) {
         isGroup: true,
       }}
     >
-      {options && options.length > 0
-        ? options.map(({ label, value }) => {
-            return (
-              <Checkbox label={value} key={value.toString()}>
-                {label}
-              </Checkbox>
-            );
-          })
-        : children}
+      <div className={style["checkbox-group"]}>
+        {options && options.length > 0
+          ? options.map(({ label, value }) => {
+              return (
+                <Checkbox label={value} key={value.toString()}>
+                  {label}
+                </Checkbox>
+              );
+            })
+          : children}
+      </div>
     </CheckboxGroupContext.Provider>
   );
 }

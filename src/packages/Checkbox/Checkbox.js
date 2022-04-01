@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { useContext, useState } from "react";
 import { CheckboxGroupContext } from "./CheckboxGroup";
 
@@ -26,7 +27,13 @@ export default function Checkbox(props) {
   };
 
   return (
-    <label className={style["checkbox-content"]}>
+    <label
+      className={classNames(
+        style["checkbox-content"],
+        checked && style["checkbox-active-content"]
+      )}
+    >
+      <div></div>
       <span className={style["checkbox-box"]}></span>
       <input
         value={label}
@@ -35,7 +42,7 @@ export default function Checkbox(props) {
         onChange={(e) => handleChange(e)}
         className={style.input}
       ></input>
-      {children ? children : label}
+      <div className={style.title}>{children ? children : label}</div>
     </label>
   );
 }

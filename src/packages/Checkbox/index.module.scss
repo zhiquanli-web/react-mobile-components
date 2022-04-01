@@ -1,14 +1,41 @@
-
 .checkbox-content {
+  font-size: vw(24);
+  margin-right: vw(20);
+  display: flex;
+  align-items: center;
   .input {
     display: none;
   }
-  
+  .checkbox-box {
+    @include wh(24, 24);
+    vertical-align: middle;
+    border: 1px solid #333;
+    margin-right: vw(10);
+  }
+  .title {
+    color: #333;
+  }
+  &.checkbox-active-content {
+    .checkbox-box {
+      position: relative;
+      background-color: #fb8241;
+      border-color: #fb8241;
+      &::before {
+        @include lt(8, 2);
+        @include wh(8, 14);
+        content: "";
+        border-color: #f8f8f8;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        transform: rotate(45deg);
+      }
+    }
+    .title {
+      color: #fb8241;
+    }
+  }
 }
 
-.checkbox-box {
-  display: inline-block;
-  width: vw(30);
-  height: vw(30);
-  border: 1px solid #f60;
+.checkbox-group {
+  display: flex;
 }
