@@ -33,7 +33,6 @@ export default function Checkbox(props) {
         checked && style["checkbox-active-content"]
       )}
     >
-      <div></div>
       <span className={style["checkbox-box"]}></span>
       <input
         value={label}
