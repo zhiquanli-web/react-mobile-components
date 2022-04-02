@@ -1,7 +1,20 @@
-import React from 'react'
+import React from "react";
 
-export default function RadioGroup() {
+const RadioGroupContext = React.createContext();
+export default function RadioGroup(props) {
+  const { defaultValus } = props;
+  const changeValue = (val) => {
+    console.log("单选框组", val);
+  };
   return (
-    <div>RadioGroup</div>
-  )
+    <RadioGroupContext.Provider
+      value={{
+        isGroup: true,
+        changeValue,
+        defaultValus,
+      }}
+    ></RadioGroupContext.Provider>
+  );
 }
+
+export { RadioGroupContext };

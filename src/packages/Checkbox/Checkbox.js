@@ -12,7 +12,7 @@ export default function Checkbox(props) {
 
   const defalueCheckVal =
     props.checked ||
-    (defaultChecked && defaultChecked.includes(label)) ||
+    (defaultChecked && defaultChecked.length > 0 && defaultChecked.includes(label)) ||
     false;
   const [checked, setChecked] = useState(defalueCheckVal);
 
