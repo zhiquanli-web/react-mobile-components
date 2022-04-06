@@ -30,10 +30,10 @@ export default function Checkbox(props) {
     <label
       className={classNames(
         style["checkbox-content"],
-        checked && style["checkbox-active-content"]
+        checked && style["checkbox-content-active"]
       )}
     >
-      <span className={style["checkbox-box"]}></span>
+      <span className={style.prev}></span>
       <input
         value={label}
         type="checkbox"
@@ -41,7 +41,7 @@ export default function Checkbox(props) {
         onChange={(e) => handleChange(e)}
         className={style.input}
       ></input>
-      <div className={style.title}>{children ? children : label}</div>
+      <span className={style.title}>{children ? children : label}</span>
     </label>
   );
 }

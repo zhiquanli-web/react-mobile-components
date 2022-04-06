@@ -1,22 +1,24 @@
 .checkbox-content {
   font-size: vw(24);
   margin-right: vw(20);
-  display: flex;
-  align-items: center;
+  display: inline-block;
   .input {
     display: none;
   }
-  .checkbox-box {
+  .prev {
+    display: inline-block;
     @include wh(24, 24);
     vertical-align: middle;
     border: 1px solid #333;
-    margin-right: vw(10);
+    margin: vw(-3) vw(10) 0 0;
+    vertical-align: middle;
   }
   .title {
+    display: inline-block;
     color: #333;
   }
-  &.checkbox-active-content {
-    .checkbox-box {
+  &-active {
+    .prev {
       position: relative;
       background-color: #fb8241;
       border-color: #fb8241;
