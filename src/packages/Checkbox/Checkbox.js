@@ -6,10 +6,8 @@ import style from "./index.module.scss";
 export default function Checkbox(props) {
   // 参数
   const { children, label } = props;
-
   const { defaultChecked, checkedChange, isGroup } =
     useContext(CheckboxGroupContext) || {};
-
   const defalueCheckVal =
     props.checked ||
     (defaultChecked && defaultChecked.length > 0 && defaultChecked.includes(label)) ||

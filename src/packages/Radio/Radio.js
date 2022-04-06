@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./index.module.scss";
 import { RadioGroupContext } from "./RadioGroup";
 
@@ -8,28 +8,22 @@ export default function Radio(props) {
   const { children, label } = props;
   const { isGroup, name, changeValue, defaultValue } =
     useContext(RadioGroupContext) || {};
-  const activeValue = isGroup ? defaultValue : props.value;
-  const [value, setValue] = useState(activeValue);
+  const [value, setValue] = useState(isGroup ? defaultValue : props.value);
   // 方法
   const handleChange = (e) => {
     setValue(e.target.value);
     if (!isGroup) {
-      if (props.onChange) {
-        props.onChange && props.onChange(e.target.value);
-      }
+      props.onChange && props.onChange(e.target.value);
     } else {
       changeValue(e.target.value);
     }
   };
-
-  useEffect(() => {
-    console.log(value, "------", activeValue);
-  }, [value, activeValue]);
   return (
     <label
       className={classNames(
         style["radio-content"],
-        activeValue && label === activeValue && style["radio-content-active"]
+        (isGroup ? label === defaultValue : label === value) &&
+          style["radio-content-active"]
       )}
     >
       <span className={style.prev}></span>
