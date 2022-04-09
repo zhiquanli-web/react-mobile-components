@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import CssTransition from "../../components/Transition/CssTransition/CssTransition";
+// import Transition from "../../components/Transition/TransitionGroup/Transition";
 
 export default function About() {
   return (
-    <div>About</div>
-  )
+    <div>
+      <CssTransition></CssTransition>
+      {/* <Transition /> */}
+    </div>
+  );
 }
